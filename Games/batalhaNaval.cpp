@@ -6,11 +6,7 @@
 
 using namespace std;
 
-void menuInicial();
-
-void limpaTela() {
-    system("cls");
-}
+void menuBatalhaNaval();
 
 void indexEixoX() {
     int i;
@@ -108,7 +104,7 @@ void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int 
     if (limiteTentativas == tentativas) {
 
         while (opcao < 1 || opcao > 3) {
-            limpaTela();
+            system("cls");
 
             cout << "Voce Conseguiu: " << "\x1b[33m" << pontos << " Pontos\n\n" << "\x1b[0m";
             mostrarTabuleiro(tabuleiro, mascara, true);
@@ -128,13 +124,13 @@ void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int 
                 break;
             case 2:
                 cout << "Voltando para o Menu";
-                menuInicial();
+                menuBatalhaNaval();
                 break;
         }
 
     } else {
         while((linha < 0 || coluna < 0) || (linha > 9 || coluna > 9) || (mascara[linha][coluna] != '*')) {
-            limpaTela();
+            system("cls");
 
             cout << "Bem Vindo ao Jogo!\n";
             cout << "Tentativas Restantes: " << limiteTentativas - tentativas << "\n";
@@ -159,13 +155,13 @@ void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int 
 
 }
 
-void menuInicial() {
+void menuBatalhaNaval() {
 
     int opcao;
     char tabuleiro[10][10], mascara[10][10];
     while (opcao < 1 || opcao > 3) {
 
-        limpaTela();
+        system("cls");
         cout << "Bem Vindo a Batalha Naval!";
         cout << "\n 1 - Jogar";
         cout << "\n 2 - Sobre";
@@ -181,7 +177,7 @@ void menuInicial() {
                 break;
             
             case 2:
-                limpaTela();
+                system("cls");
                 cout << "O jogo da Batalha Naval, jogado sozinho, e uma versao de estrategia em que o objetivo e \n";
                 cout << "localizar e destruir navios inimigos ocultos em uma grade de quadrados. O jogador \n";
                 cout << "posiciona seus proprios navios em uma grade, e o computador aleatoriamente posiciona a \n";
@@ -190,7 +186,7 @@ void menuInicial() {
 
                 system("PAUSE");
 
-                menuInicial();
+                menuBatalhaNaval();
                 break;
         }
     }
@@ -199,6 +195,6 @@ void menuInicial() {
 void BatalhaNaval() {
     srand(static_cast<unsigned>(time(NULL)));
 
-    menuInicial();
+    menuBatalhaNaval();
 }
 

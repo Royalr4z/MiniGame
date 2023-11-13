@@ -6,9 +6,8 @@
 
 using namespace std;
 
-void limpaTela() {
-    system("cls");
-}
+void menuJogoDaVelha();
+void jogo(char tabuleiro[3][3]);
 
 void criacaoTabuleiro(char tabuleiro[3][3]) {
     
@@ -42,43 +41,111 @@ void mostrarTabuleiro(char tabuleiro[3][3]) {
     cout << endl;
 }
 
-void jogo(char tabuleiro[3][3], int i) {
+bool verificarVitoria(char tabuleiro[3][3], char jogador) {
+    // Verifica linhas e colunas
+    for (int i = 0; i < 3; i++) {
+        if ((tabuleiro[i][0] == jogador && tabuleiro[i][1] == jogador && tabuleiro[i][2] == jogador) ||
+            (tabuleiro[0][i] == jogador && tabuleiro[1][i] == jogador && tabuleiro[2][i] == jogador)) {
+            return true;
+        }
+    }
 
+    // Verifica diagonais
+    if ((tabuleiro[0][0] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][2] == jogador) ||
+        (tabuleiro[0][2] == jogador && tabuleiro[1][1] == jogador && tabuleiro[2][0] == jogador)) {
+        return true;
+    }
+
+    return false;
+}
+
+bool tabuleiroCheio(char tabuleiro[3][3]) {
+    for (int linha = 0; linha < 3; linha++) {
+        for (int coluna = 0; coluna < 3; coluna++) {
+            if (tabuleiro[linha][coluna] == ' ') {
+                return false; // Ainda há espaços vazios no tabuleiro
+            }
+        }
+    }
+    return true; // O tabuleiro está cheio
+}
+
+void jogo(char tabuleiro[3][3]) {
     int linha, coluna;
+    char jogador = 'X';
+    int opcao;
 
-    while (((linha < 0 || coluna < 0 ) || (linha > 2 || coluna > 2)) || (tabuleiro[linha][coluna] != ' ')) {
-        limpaTela();
-
-        cout << "Bem Vindo ao Jogo!\n"; 
+    while (true) {
+        system("cls");
+        cout << "Jogador " << jogador << ", e sua vez!\n";
 
         mostrarTabuleiro(tabuleiro);
 
-        cout << "\nDigite o Numero da linha: \n";
+        cout << "\nDigite o numero da linha: ";
         cin >> linha;
 
-        cout << "\nDigite o Numero da Coluna: \n";
+        cout << "Digite o numero da coluna: ";
         cin >> coluna;
+
+        if (linha >= 0 && linha < 3 && coluna >= 0 && coluna < 3 && tabuleiro[linha][coluna] == ' ') {
+            tabuleiro[linha][coluna] = jogador;
+
+            if (verificarVitoria(tabuleiro, jogador)) {
+
+                while (opcao < 1 || opcao > 3) {
+                    system("cls");
+                    mostrarTabuleiro(tabuleiro);
+                    cout << "Parabens! Jogador " << jogador << " venceu!\n";
+
+                    cout << "\nEscolha uma Opcao:";
+                    cout << "\n 1 - Jogar Novamente";
+                    cout << "\n 2 - Voltar Para o Menu";
+                    cout << "\n 3 - Sair";
+                    cout << "\n";
+                    cin >> opcao;
+                }
+
+                break;
+            } else if (tabuleiroCheio(tabuleiro)) {
+
+                while (opcao < 1 || opcao > 3) {
+                    system("cls");
+                    mostrarTabuleiro(tabuleiro);
+                    cout << "O jogo empatou!\n";
+
+                    cout << "\nEscolha uma Opcao:";
+                    cout << "\n 1 - Jogar Novamente";
+                    cout << "\n 2 - Voltar Para o Menu";
+                    cout << "\n 3 - Sair";
+                    cout << "\n";
+                    cin >> opcao;
+                }
+                break;
+            }
+
+            jogador = (jogador == 'X') ? 'O' : 'X'; // Alternar entre X e O
+        }    
     }
 
-    if (i == 1) {
-        tabuleiro[linha][coluna] = 'X';
-        i = 2;
-    } else if (i == 2) {
-        tabuleiro[linha][coluna] = 'O';
-        i = 1;
+    switch (opcao) {
+        case 1:
+            criacaoTabuleiro(tabuleiro);
+            jogo(tabuleiro);
+            break;
+        case 2:
+            cout << "Voltando para o Menu...";
+            menuJogoDaVelha();
+            break;
     }
-
-    jogo(tabuleiro, i);
 }
 
-
-void menuInicial() {
+void menuJogoDaVelha() {
 
     int opcao;
     char tabuleiro[3][3];
     while (opcao < 1 || opcao > 3) {
 
-        limpaTela();
+        system("cls");
         cout << "Bem Vindo ao Jogo Da Velha!";
         cout << "\n 1 - Jogar";
         cout << "\n 2 - Sobre";
@@ -89,20 +156,20 @@ void menuInicial() {
         switch (opcao) {
             case 1:
                 criacaoTabuleiro(tabuleiro);
-                jogo(tabuleiro, 1);
+                jogo(tabuleiro);
 
                 break;
             
             case 2:
-                limpaTela();
-                cout << "O Jogo da Velha e um jogo de estratégia simples e popular para dois jogadores, que se \n";
-                cout << "alternam marcando X e O em uma grade 3x3. O objetivo é conseguir uma linha, coluna ou \n";
-                cout << "diagonal completa com suas marcações antes do adversário. ";
+                system("cls");
+                cout << "O Jogo da Velha e um jogo de estrategia simples e popular para dois jogadores, que se \n";
+                cout << "alternam marcando X e O em uma grade 3x3. O objetivo e conseguir uma linha, coluna ou \n";
+                cout << "diagonal completa com suas marcacoes antes do adversario. ";
                 cout << "\n\n";
 
                 system("PAUSE");
 
-                menuInicial();
+                menuJogoDaVelha();
                 break;
         }
     }
@@ -111,5 +178,5 @@ void menuInicial() {
 void JogoDaVelha() {
     srand(static_cast<unsigned>(time(NULL)));
 
-    menuInicial();
+    menuJogoDaVelha();
 }
