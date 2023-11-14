@@ -3,6 +3,7 @@
 
 #include "Games/batalhaNaval.cpp"
 #include "Games/jogoDaVelha.cpp"
+#include "Games/jogoDaForca.cpp"
 
 int main() {
 
@@ -25,8 +26,7 @@ int main() {
             JogoDaVelha();
             break;
         case 3:
-            system("cls");
-            std::cout << "\n 3 - Jogo da Forca Indisponivel no momento!\n";
+            JogoDaForca();
             break;
 
     }
