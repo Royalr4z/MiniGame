@@ -106,6 +106,13 @@ void jogo() {
         system("cls");
 
         // Imprimir a forca e a palavra atual
+        for (size_t i = 0; i < letrasAdivinhadas.length(); ++i) {
+            // Se não for o último caractere, adiciona ", " à string de resultado
+            cout << letrasAdivinhadas[i] << ", ";
+        }
+
+        cout << "\n";
+
         imprimirForca(tentativas);
         imprimirPalavra(palavraSelecionada, letrasAdivinhadas);
 
