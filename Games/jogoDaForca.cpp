@@ -2,6 +2,8 @@
 #include <string>
 #include <algorithm>
 #include <ctime>
+#include <cctype>
+#include <locale>
 
 using namespace std;
 
@@ -74,6 +76,8 @@ void imprimirPalavra(const string& palavra, const string& letrasAdivinhadas) {
     for (char letter : palavra) {
         if (letrasAdivinhadas.find(letter) != string::npos) {
             cout << letter << " ";
+        } else if (letter == ' ') {
+            cout << "- ";
         } else {
             cout << "_ ";
         }
@@ -88,12 +92,24 @@ bool letraNaPalavra(char letra, const string& palavra) {
 
 void jogo() {
     // Lista de palavras para o jogo
-    string palavras[] = {"programacao", "computador", "linguagem", "desenvolvimento", "software", "hardware"};
+    string palavras[] = {"programacao", "computador", "linguagem", "desenvolvimento", "software", "hardware",
+            "algoritmo", "codigo", "variavel", "funcao", "biblioteca", "interface", "compilacao", "debugar", "servidor", "cliente",
+            "rede", "protocolo", "banco de dados", "web", "servidor web", "navegador", "dominio", "hospedagem", "seguranca", "criptografia",
+            "internet", "email", "download", "upload", "backup", "desktop", "devops", "inteligencia artificial", "machine learning",
+            "firewall", "hacker", "exploit"};
 
     // Escolher uma palavra aleatória
     srand(static_cast<unsigned int>(time(0)));
-    int indiceAleatorio  = rand() % (sizeof(palavras) / sizeof(palavras[0]));
+    int indiceAleatorio = rand() % (sizeof(palavras) / sizeof(palavras[0]));
     string palavraSelecionada = palavras[indiceAleatorio];
+    
+    // Removendo espaços da string
+    string palavraSemEspaco = "";
+    for (char c : palavraSelecionada) {
+        if (c != ' ') {
+            palavraSemEspaco += c;
+        }
+    }
 
     int maxTentativas = 6;
     int tentativas = 0;
@@ -120,6 +136,7 @@ void jogo() {
         cout << "Digite uma letra: ";
         char palpite;
         cin >> palpite;
+        palpite = tolower(palpite);
 
         // Verificar se a letra já foi adivinhada
         if (letrasAdivinhadas.find(palpite) != string::npos) {
@@ -131,7 +148,7 @@ void jogo() {
         letrasAdivinhadas += palpite;
 
         // Verificar se a letra está na palavra
-        if (letraNaPalavra(palpite, palavraSelecionada)) {
+        if (letraNaPalavra(palpite, palavraSemEspaco)) {
             cout << "Correto! A letra esta na palavra." << endl;
         } else {
             system("cls");
@@ -140,7 +157,7 @@ void jogo() {
         }
 
         // Verificar se o jogador ganhou
-        bool palavraAdivinhada = all_of(palavraSelecionada.begin(), palavraSelecionada.end(), [&letrasAdivinhadas](char letra) {
+        bool palavraAdivinhada = all_of(palavraSemEspaco.begin(), palavraSemEspaco.end(), [&letrasAdivinhadas](char letra) {
             return letrasAdivinhadas.find(letra) != string::npos;
         });
 
