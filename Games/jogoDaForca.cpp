@@ -77,7 +77,7 @@ void imprimirPalavra(const string& palavra, const string& letrasAdivinhadas) {
         if (letrasAdivinhadas.find(letter) != string::npos) {
             cout << letter << " ";
         } else if (letter == ' ') {
-            cout << "- ";
+            cout << "  ";
         } else {
             cout << "_ ";
         }
@@ -92,11 +92,11 @@ bool letraNaPalavra(char letra, const string& palavra) {
 
 void jogo() {
     // Lista de palavras para o jogo
-    string palavras[] = {"programacao", "computador", "linguagem", "desenvolvimento", "software", "hardware",
+    string palavras[] = {"programacao", "computador", "linguagem", "desenvolvimento", "software", "hardware", "protocolo",
             "algoritmo", "codigo", "variavel", "funcao", "biblioteca", "interface", "compilacao", "debugar", "servidor", "cliente",
-            "rede", "protocolo", "banco de dados", "web", "servidor web", "navegador", "dominio", "hospedagem", "seguranca", "criptografia",
-            "internet", "email", "download", "upload", "backup", "desktop", "devops", "inteligencia artificial", "machine learning",
-            "firewall", "hacker", "exploit"};
+            "rede", "banco de dados", "javascript", "typescript", "python", "powershell", "bash", "linux", "docker", "kubernetes",
+            "criptografia", "internet", "email", "download", "upload", "backup", "desktop", "devops", "inteligencia artificial",
+            "seguranca", "machine learning", "firewall", "hacker", "exploit", "dominio", "hospedagem", "servidor web", "navegador"};
 
     // Escolher uma palavra aleatória
     srand(static_cast<unsigned int>(time(0)));
@@ -116,10 +116,10 @@ void jogo() {
     string letrasAdivinhadas;
     int opcao;
 
+    system("cls");
     cout << "Bem-vindo ao Jogo da Forca!" << endl;
 
     while (tentativas < maxTentativas) {
-        system("cls");
 
         // Imprimir a forca e a palavra atual
         for (size_t i = 0; i < letrasAdivinhadas.length(); ++i) {
@@ -140,6 +140,7 @@ void jogo() {
 
         // Verificar se a letra já foi adivinhada
         if (letrasAdivinhadas.find(palpite) != string::npos) {
+            system("cls");
             cout << "Voce ja tentou essa letra. Tente novamente." << endl;
             continue;
         }
@@ -149,10 +150,11 @@ void jogo() {
 
         // Verificar se a letra está na palavra
         if (letraNaPalavra(palpite, palavraSemEspaco)) {
-            cout << "Correto! A letra esta na palavra." << endl;
+            system("cls");
+            cout << "\x1b[32m" "Correto!" << "\x1b[0m" " A letra esta na palavra." << endl;
         } else {
             system("cls");
-            cout << "Incorreto! Tente novamente." << endl;
+            cout << "\x1b[31m" "Incorreto!" << "\x1b[0m" << " Tente novamente." << endl;
             tentativas++;
         }
 
