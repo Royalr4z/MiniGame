@@ -94,7 +94,7 @@ void criacaoTabuleiro(char tabuleiro[10][10], char mascara[10][10]) {
     }
 }
 
-void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int pontos = 0) {
+void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int pontos = 0, int msg = 0) {
 
     int limiteTentativas = 20;
     int linha = -1;
@@ -132,7 +132,14 @@ void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int 
         while((linha < 0 || coluna < 0) || (linha > 9 || coluna > 9) || (mascara[linha][coluna] != '*')) {
             system("cls");
 
-            cout << "Bem Vindo ao Jogo!\n";
+            if (msg == 1) {
+                cout << "\x1b[32m" "Acertou!" << "\x1b[0m" << "\n";
+            } else if (msg == 2) {
+                cout << "\x1b[31m" "Errou!" << "\x1b[0m" << "\n";
+            } else if (msg == 0) {
+                cout << "Bem Vindo ao Jogo!\n";
+            }
+            
             cout << "Tentativas Restantes: " << limiteTentativas - tentativas << "\n";
             cout << "\x1b[33m" << pontos << " Pts\n\n" << "\x1b[0m";
             mostrarTabuleiro(tabuleiro, mascara, false);
@@ -147,10 +154,15 @@ void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int 
         mascara[linha][coluna] = tabuleiro[linha][coluna];
 
         if (mascara[linha][coluna] == 'P') {
+
             pontos = pontos + 10;
+            jogo(tabuleiro, mascara, tentativas + 1, pontos, 1);
+        } else if (mascara[linha][coluna] == 'A') {
+
+            jogo(tabuleiro, mascara, tentativas + 1, pontos, 2);
         }
 
-        jogo(tabuleiro, mascara, tentativas + 1, pontos);
+
     }
 
 }
