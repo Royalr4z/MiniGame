@@ -41,17 +41,14 @@ void mostrarTabuleiro(char tabuleiro[10][10], char mascara[10][10], bool mostrar
                 
                     cout << " " << "\x1b[32m" << mascara[linha][coluna] << "\x1b[0m";
                     break;
-
                 case 'M':
                 
                     cout << " " << "\x1b[33m" << mascara[linha][coluna] << "\x1b[0m";
                     break;
-                
                 case 'G':
                 
                     cout << " " << "\x1b[31m" << mascara[linha][coluna] << "\x1b[0m";
                     break;
-
                 default:
                     cout  << " " << mascara[linha][coluna];
                     break;
@@ -97,7 +94,7 @@ void criacaoTabuleiro(char tabuleiro[10][10], char mascara[10][10]) {
         }
     }
 
-    for (i = 0; i < 4;) {
+    for (i = 0; i < 6;) {
         int linhaAleotoria = rand() % 10;
         int colunaAleotoria = rand() % 10;
 
@@ -107,7 +104,7 @@ void criacaoTabuleiro(char tabuleiro[10][10], char mascara[10][10]) {
         }
     }
 
-    for (i = 0; i < 5;) {
+    for (i = 0; i < 4;) {
         int linhaAleotoria = rand() % 10;
         int colunaAleotoria = rand() % 10;
 
