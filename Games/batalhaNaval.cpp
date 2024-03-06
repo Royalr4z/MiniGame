@@ -69,7 +69,9 @@ void mostrarTabuleiro(char tabuleiro[10][10], char mascara[10][10], bool mostrar
 
             for (coluna = 0; coluna < 10; coluna++) {
 
-                if (tabuleiro[linha][coluna] == 'A') {
+                if (tabuleiro[linha][coluna] == mascara[linha][coluna]) {
+                    cout << " " << "\x1b[41m" << tabuleiro[linha][coluna] << "\x1b[0m";
+                } else if (tabuleiro[linha][coluna] == 'A') {
                     cout << " " << "\x1b[34m" << tabuleiro[linha][coluna] << "\x1b[0m";
                 } else if (tabuleiro[linha][coluna] == 'M') {
                     cout << " " << "\x1b[33m" << tabuleiro[linha][coluna] << "\x1b[0m";
