@@ -12,11 +12,17 @@ Jogos Disponíveis
 1. Certifique-se de ter um compilador C++ instalado em seu sistema.
 
 2. Clone este repositório em seu computador: <br/>
-    `git clone https://github.com/Royalr4z/MiniGames.git`
-3. Compile o jogo: <br/>
-    `g++ -o main main.cpp`
-4. Execute o jogo: <br/>
-    `./main`
+```
+   git clone https://github.com/Royalr4z/MiniGames.git
+```
+4. Compile o jogo: <br/>
+```
+    g++ -o main main.cpp
+```
+5. Execute o jogo: <br/>
+```
+   ./main
+```
 
 # Contribuição
 
