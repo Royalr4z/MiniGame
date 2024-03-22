@@ -7,21 +7,23 @@ Jogos Disponíveis
 - <strong>Jogo da Forca</strong> -  Um jogo de adivinhação de palavras onde o jogador tenta adivinhar uma palavra, letra por letra, antes de esgotar o número máximo de tentativas. Cada letra correta revela sua posição na palavra, enquanto cada letra errada adiciona uma parte ao desenho do enforcado.
 - <strong>Batalha Naval</strong> - Um jogo de estratégia em que o jogador tenta adivinhar as posições dos navios do oponente em um tabuleiro. Quanto mais descobrir e afundar os navios mais pontos ganha.
 
-# Como Compilar e Executar
+# Como Compilar e Executar (Fedora Linux)
 
 1. Certifique-se de ter um compilador C++ instalado em seu sistema.
-
+```
+sudo dnf install gpp
+```
 2. Clone este repositório em seu computador: <br/>
 ```
-   git clone https://github.com/Royalr4z/MiniGames.git
+git clone https://github.com/Royalr4z/MiniGames.git
 ```
 4. Compile o jogo: <br/>
 ```
-    g++ -o main main.cpp
+g++ -o main main.cpp
 ```
 5. Execute o jogo: <br/>
 ```
-   ./main
+./main
 ```
 
 # Contribuição
