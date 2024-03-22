@@ -116,7 +116,7 @@ void jogo() {
     string letrasAdivinhadas;
     int opcao;
 
-    system("cls");
+    system("clear");
     cout << "Bem-vindo ao Jogo da Forca!" << endl;
 
     while (tentativas < maxTentativas) {
@@ -140,7 +140,7 @@ void jogo() {
 
         // Verificar se a letra já foi adivinhada
         if (letrasAdivinhadas.find(palpite) != string::npos) {
-            system("cls");
+            system("clear");
             cout << "Voce ja tentou essa letra. Tente novamente." << endl;
             continue;
         }
@@ -150,10 +150,10 @@ void jogo() {
 
         // Verificar se a letra está na palavra
         if (letraNaPalavra(palpite, palavraSemEspaco)) {
-            system("cls");
+            system("clear");
             cout << "\x1b[32m" "Correto!" << "\x1b[0m" " A letra esta na palavra." << endl;
         } else {
-            system("cls");
+            system("clear");
             cout << "\x1b[31m" "Incorreto!" << "\x1b[0m" << " Tente novamente." << endl;
             tentativas++;
         }
@@ -166,7 +166,7 @@ void jogo() {
         if (palavraAdivinhada) {
 
             while (opcao < 1 || opcao > 3) {
-                system("cls");
+                system("clear");
 
                 cout << "\x1b[33m" << "Parabens! " << "\x1b[0m" << "Voce adivinhou a palavra: " << palavraSelecionada << endl;
                 imprimirForca(tentativas);
@@ -197,7 +197,7 @@ void jogo() {
     if (tentativas == maxTentativas) {
 
         while (opcao < 1 || opcao > 3) {
-            system("cls");
+            system("clear");
 
             cout << "\x1b[31m" << "Voce perdeu! " << "\x1b[0m" << "A palavra correta era: " << palavraSelecionada << endl;
             imprimirForca(tentativas);
@@ -229,7 +229,7 @@ void menuJogoDaForca() {
 
     while (opcao < 1 || opcao > 3) {
 
-        system("cls");
+        system("clear");
         cout << "Bem Vindo ao Jogo Da Forca!";
         cout << "\n 1 - Jogar";
         cout << "\n 2 - Sobre";
@@ -243,7 +243,7 @@ void menuJogoDaForca() {
                 break;
             
             case 2:
-                system("cls");
+                system("clear");
                 cout << "No jogo da forca solo, o jogador desafia o computador, que escolhe uma palavra secreta. \n";
                 cout << "O objetivo e adivinhar a palavra por meio de tentativas de letras, com um numero limitado de \n";
                 cout << "erros permitidos. A emocao reside na busca pela palavra certa enquanto se evita exceder o  \n";

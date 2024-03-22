@@ -9,7 +9,7 @@ int main() {
 
     int opcao = 0;
     while (opcao < 1 || opcao > 3) {
-        system("cls");
+        system("clear");
         std::cout << "O que Deseja Jogar? ";
         std::cout << "\n  1 - Batalha Naval";
         std::cout << "\n  2 - Jogo Da Velha";

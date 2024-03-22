@@ -145,7 +145,7 @@ void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int 
     if (limiteTentativas == tentativas) {
 
         while (opcao < 1 || opcao > 3) {
-            system("cls");
+            system("clear");
 
             cout << "Voce Conseguiu: " << "\x1b[33m" << pontos << " Pontos\n\n" << "\x1b[0m";
             mostrarTabuleiro(tabuleiro, mascara, true);
@@ -171,7 +171,7 @@ void jogo(char tabuleiro[10][10], char mascara[10][10], int tentativas = 0, int 
 
     } else {
         while((linha < 0 || coluna < 0) || (linha > 9 || coluna > 9) || (mascara[linha][coluna] != '*')) {
-            system("cls");
+            system("clear");
 
             if (msg == 1) {
                 cout << "\x1b[32m" "Acertou!" << "\x1b[0m" << "\n";
@@ -222,7 +222,7 @@ void menuBatalhaNaval() {
     char tabuleiro[10][10], mascara[10][10];
     while (opcao < 1 || opcao > 3) {
 
-        system("cls");
+        system("clear");
         cout << "Bem Vindo a Batalha Naval!";
         cout << "\n 1 - Jogar";
         cout << "\n 2 - Sobre";
@@ -238,7 +238,7 @@ void menuBatalhaNaval() {
                 break;
             
             case 2:
-                system("cls");
+                system("clear");
                 cout << "O jogo da Batalha Naval, jogado sozinho, e uma versao de estrategia em que o objetivo e \n";
                 cout << "localizar e destruir navios inimigos ocultos em uma grade de quadrados. O jogador \n";
                 cout << "posiciona seus proprios navios em uma grade, e o computador aleatoriamente posiciona a \n";

@@ -76,7 +76,7 @@ void jogo(char tabuleiro[3][3]) {
     int opcao;
 
     while (true) {
-        system("cls");
+        system("clear");
         cout << "Jogador " << jogador << ", e sua vez!\n";
 
         mostrarTabuleiro(tabuleiro);
@@ -93,7 +93,7 @@ void jogo(char tabuleiro[3][3]) {
             if (verificarVitoria(tabuleiro, jogador)) {
 
                 while (opcao < 1 || opcao > 3) {
-                    system("cls");
+                    system("clear");
                     mostrarTabuleiro(tabuleiro);
                     cout << "Parabens! Jogador " << jogador << " venceu!\n";
 
@@ -109,7 +109,7 @@ void jogo(char tabuleiro[3][3]) {
             } else if (tabuleiroCheio(tabuleiro)) {
 
                 while (opcao < 1 || opcao > 3) {
-                    system("cls");
+                    system("clear");
                     mostrarTabuleiro(tabuleiro);
                     cout << "O jogo empatou!\n";
 
@@ -145,7 +145,7 @@ void menuJogoDaVelha() {
     char tabuleiro[3][3];
     while (opcao < 1 || opcao > 3) {
 
-        system("cls");
+        system("clear");
         cout << "Bem Vindo ao Jogo Da Velha!";
         cout << "\n 1 - Jogar";
         cout << "\n 2 - Sobre";
@@ -161,7 +161,7 @@ void menuJogoDaVelha() {
                 break;
             
             case 2:
-                system("cls");
+                system("clear");
                 cout << "O Jogo da Velha e um jogo de estrategia simples e popular para dois jogadores, que se \n";
                 cout << "alternam marcando X e O em uma grade 3x3. O objetivo e conseguir uma linha, coluna ou \n";
                 cout << "diagonal completa com suas marcacoes antes do adversario. ";
