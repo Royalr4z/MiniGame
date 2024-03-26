@@ -4,6 +4,12 @@
 #include <iostream>
 #include <time.h>
 
+#ifdef _WIN32
+    #define PAUSE_COMMAND "pause"
+#else
+    #define PAUSE_COMMAND "read -p 'Pressione Enter para continuar...'"
+#endif
+
 using namespace std;
 
 void menuJogoDaVelha();
@@ -167,7 +173,7 @@ void menuJogoDaVelha() {
                 cout << "diagonal completa com suas marcacoes antes do adversario. ";
                 cout << "\n\n";
 
-                system("PAUSE");
+                system(PAUSE_COMMAND);
 
                 menuJogoDaVelha();
                 break;

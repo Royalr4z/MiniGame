@@ -5,6 +5,12 @@
 #include <cctype>
 #include <locale>
 
+#ifdef _WIN32
+    #define PAUSE_COMMAND "pause"
+#else
+    #define PAUSE_COMMAND "read -p 'Pressione Enter para continuar...'"
+#endif
+
 using namespace std;
 
 void menuJogoDaForca();
@@ -250,7 +256,7 @@ void menuJogoDaForca() {
                 cout << "limite de erros. ";
                 cout << "\n\n";
 
-                system("PAUSE");
+                system(PAUSE_COMMAND);
 
                 menuJogoDaForca();
                 break;
