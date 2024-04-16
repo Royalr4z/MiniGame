@@ -229,11 +229,22 @@ void menuBatalhaNaval() {
     while (opcao < 1 || opcao > 3) {
 
         system("clear");
-        cout << "Bem Vindo a Batalha Naval!";
-        cout << "\n 1 - Jogar";
-        cout << "\n 2 - Sobre";
-        cout << "\n 3 - Sair";
-        cout << "\n\n";
+        cout << "              |    |    |                " << endl;
+        cout << "             )_)  )_)  )_)               " << endl;
+        cout << "            )___))___))___)\\            " << endl;
+        cout << "           )____)____)_____)\\\\         " << endl;
+        cout << "         _____|____|____|____\\\\\\__    " << endl;
+        cout << "---------\\                   /--------- " << endl;
+        cout << "  ^^^^^ ^^^^^^^^^^^^^^^^^^^^^            " << endl;
+        cout << "    ^^^^      ^^^^     ^^^    ^^         " << endl;
+        cout << "         ^^^^      ^^^                   " << endl;
+
+        cout << "==============================" << endl;
+        cout << "| Bem Vindo a Batalha Naval! |" << endl;
+        cout << "|  1 - Jogar                 |" << endl;
+        cout << "|  2 - Sobre                 |" << endl;
+        cout << "|  3 - Sair                  |" << endl;
+        cout << "==============================" << endl;
         cin >> opcao;
 
         switch (opcao) {

@@ -236,11 +236,20 @@ void menuJogoDaForca() {
     while (opcao < 1 || opcao > 3) {
 
         system("clear");
-        cout << "Bem Vindo ao Jogo Da Forca!";
-        cout << "\n 1 - Jogar";
-        cout << "\n 2 - Sobre";
-        cout << "\n 3 - Sair";
-        cout << "\n\n";
+        cout << "         =============         " << endl;
+        cout << "         |   +---+   |         " << endl;
+        cout << "         |   |   |   |         " << endl;
+        cout << "         |   O   |   |         " << endl;
+        cout << "         |  /|\\  |   |         " << endl;
+        cout << "         |  / \\  |   |         " << endl;
+        cout << "         |       |   |         " << endl;
+        cout << "===============================" << endl;
+
+        cout << "| Bem Vindo ao Jogo Da Forca! |" << endl;;
+        cout << "|  1 - Jogar                  |" << endl;;
+        cout << "|  2 - Sobre                  |" << endl;;
+        cout << "|  3 - Sair                   |" << endl;;
+        cout << "===============================" << endl;
         cin >> opcao;
 
         switch (opcao) {

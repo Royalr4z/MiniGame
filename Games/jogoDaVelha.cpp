@@ -152,11 +152,24 @@ void menuJogoDaVelha() {
     while (opcao < 1 || opcao > 3) {
 
         system("clear");
-        cout << "Bem Vindo ao Jogo Da Velha!";
-        cout << "\n 1 - Jogar";
-        cout << "\n 2 - Sobre";
-        cout << "\n 3 - Sair";
-        cout << "\n\n";
+        cout << "===============================" << endl;
+        cout << "           _._______           " << endl;
+        cout << "          | _______ |          " << endl;
+        cout << "          ||,-----.||          " << endl;
+        cout << "          |||     |||          " << endl;
+        cout << "          |||_____|||          " << endl;
+        cout << "          |`-------'|          " << endl;
+        cout << "          | +     O |          " << endl;
+        cout << "          |      O  |          " << endl;
+        cout << "          | / /  ##,\"         " << endl;
+        cout << "           `------\"           " << endl;
+        cout << "===============================" << endl;
+
+        cout << "| Bem Vindo ao Jogo Da Velha! |" << endl;;
+        cout << "|  1 - Jogar                  |" << endl;
+        cout << "|  2 - Sobre                  |" << endl;
+        cout << "|  3 - Sair                   |" << endl;
+        cout << "===============================" << endl;
         cin >> opcao;
 
         switch (opcao) {
